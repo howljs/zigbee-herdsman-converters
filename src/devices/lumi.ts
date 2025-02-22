@@ -7,12 +7,6 @@ import * as m from '../lib/modernExtend';
 import * as reporting from '../lib/reporting';
 import * as globalStore from '../lib/store';
 import {DefinitionWithExtend} from '../lib/types';
-import {
-    battery,
-    deviceEndpoints,
-    iasZoneAlarm,
-    onOff
-} from '../lib/modernExtend';
 
 const e = exposes.presets;
 const ea = exposes.access;
@@ -4523,35 +4517,5 @@ export const definitions: DefinitionWithExtend[] = [
             lumiMultiClick({description: 'Multi-click mode for left down button', endpointName: 'left_down'}),
             lumiMultiClick({description: 'Multi-click mode for right down button', endpointName: 'right_down'}),
         ],
-    },
-    {
-        zigbeeModel: ['HS-SWL100ZB-VNM'],
-        model: 'HS-SWL100ZB-VNM',
-        vendor: 'VSmart',
-        description: 'VSmart Smart Wall Switch',
-        extend: [onOff({powerOnBehavior: false})],
-    },
-    {
-        zigbeeModel: ['HS-SWL300ZB-VNM'],
-        model: 'HS-SWL300ZB-VNM',
-        vendor: 'VSmart',
-        description: 'VSmart Smart Wall Switch 3',
-        extend: [deviceEndpoints({endpoints: {'1': 1, '2': 2, '3': 3}}), onOff({powerOnBehavior: false, endpointNames: ['1', '2', '3']})],
-        meta: {multiEndpoint: true},
-    },
-    {
-        zigbeeModel: ['HS-SWL200ZB-VNM'],
-        model: 'HS-SWL200ZB-VNM',
-        vendor: 'VSmart',
-        description: 'VSmart Smart Wall Switch 2',
-        extend: [deviceEndpoints({endpoints: {'1': 1, '2': 2}}), onOff({powerOnBehavior: false, endpointNames: ['1', '2']})],
-        meta: {multiEndpoint: true},
-    },
-    {
-        zigbeeModel: ['HS-SEDR00ZB-VNM'],
-        model: 'HS-SEDR00ZB-VNM',
-        vendor: 'VSmart',
-        description: 'VSmart Smart door window sensor',
-        extend: [battery(), iasZoneAlarm({zoneType: 'contact', zoneAttributes: ['alarm_1', 'battery_low'], skipInvertAlarmPayload: true})],
     },
 ];
