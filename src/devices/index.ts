@@ -350,6 +350,8 @@ import {definitions as zen} from "./zen";
 import {definitions as zigbeetlc} from "./zigbeetlc";
 import {definitions as zipato} from "./zipato";
 
+import {definitions as vsmart} from './vsmart';
+
 const definitions: DefinitionWithExtend[] = [
     ...acova,
     ...acuityBrandsLighting,
@@ -701,6 +703,7 @@ const definitions: DefinitionWithExtend[] = [
     ...zipato,
     ...qa,
     ...engo,
+    ...vsmart,
 ];
 
 export default definitions;
