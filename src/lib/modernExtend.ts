@@ -1622,10 +1622,11 @@ export interface IasArgs {
     zoneStatusReporting?: boolean;
     description?: string;
     manufacturerZoneAttributes?: ManufacturerZoneAttribute[];
+    skipInvertAlarmPayload?: boolean;
 }
 export function iasZoneAlarm(args: IasArgs): ModernExtend {
     const exposes: Expose[] = [];
-    const invertAlarmPayload = args.zoneType === "contact";
+    const invertAlarmPayload = args.skipInvertAlarmPayload ? false : args.zoneType === "contact";
     const bothAlarms = args.zoneAttributes.includes("alarm_1") && args.zoneAttributes.includes("alarm_2");
 
     let alarm1Name = "alarm_1";
